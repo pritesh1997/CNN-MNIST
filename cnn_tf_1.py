@@ -59,7 +59,7 @@ sess = tf.Session(config=config)
 sess.run(tf.global_variables_initializer())
 
 for i in range(1000):
-    batch_x, batch_y = mnist.train.next_batch(32)
+    batch_x, batch_y = mnist.train.next_batch(100)
     sess.run(train_step,feed_dict={x: batch_x, y: batch_y, keep_prob: 0.5})
-    if i % 32 == 0:
+    if i % 50 == 0:
         print(compute_accuracy(mnist.test.images, mnist.test.labels))
